@@ -14,6 +14,7 @@
         private NetworkService networkService;
         private ApiService apiService;
         private DialogService dialogService;
+        private DataService dataService;
         #endregion
 
         public Form1()
@@ -22,6 +23,7 @@
             networkService = new NetworkService();
             apiService = new ApiService();
             dialogService = new DialogService();
+            dataService = new DataService();
             LoadRates();
         }
 
@@ -46,8 +48,10 @@
             if(Rates.Count == 0)
             {
                 lbl_resultado.Text = "Não há ligação à internet" + Environment.NewLine +
-                    "e não foram préviamente carregadas as taxas." + Environment.NewLine +
+                    "e não foram previamente carregadas as taxas." + Environment.NewLine +
                     "Tente mais tarde.";
+
+                lbl_status.Text = "Primeira iniciação deverá ter ligação à internet";
 
                 return;
             }
@@ -80,7 +84,7 @@
 
         private void LoadLocalRates()
         {
-            MessageBox.Show("Não está implementado");
+            Rates = dataService.GetData();
         }
 
         private async Task LoadApiRates()
@@ -90,6 +94,9 @@
             var response = await apiService.GetRates("http://cambios.somee.com", "/api/rates");
 
             Rates = (List<Rate>) response.Result;
+
+            dataService.DeleteData();
+            dataService.SaveData(Rates);
         }
 
         private void btn_converter_Click(object sender, EventArgs e)
