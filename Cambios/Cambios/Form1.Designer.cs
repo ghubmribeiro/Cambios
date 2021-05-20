@@ -29,6 +29,7 @@ namespace Cambios
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_valor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@ namespace Cambios
             this.lbl_resultado = new System.Windows.Forms.Label();
             this.lbl_status = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btn_troca = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +98,7 @@ namespace Cambios
             // 
             // btn_converter
             // 
+            this.btn_converter.Enabled = false;
             this.btn_converter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_converter.Location = new System.Drawing.Point(666, 48);
             this.btn_converter.Name = "btn_converter";
@@ -103,6 +106,7 @@ namespace Cambios
             this.btn_converter.TabIndex = 4;
             this.btn_converter.Text = "Converter";
             this.btn_converter.UseVisualStyleBackColor = true;
+            this.btn_converter.Click += new System.EventHandler(this.btn_converter_Click);
             // 
             // lbl_resultado
             // 
@@ -130,11 +134,24 @@ namespace Cambios
             this.progressBar1.Size = new System.Drawing.Size(168, 23);
             this.progressBar1.TabIndex = 6;
             // 
+            // btn_troca
+            // 
+            this.btn_troca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_troca.Enabled = false;
+            this.btn_troca.Image = ((System.Drawing.Image)(resources.GetObject("btn_troca.Image")));
+            this.btn_troca.Location = new System.Drawing.Point(676, 112);
+            this.btn_troca.Name = "btn_troca";
+            this.btn_troca.Size = new System.Drawing.Size(63, 58);
+            this.btn_troca.TabIndex = 7;
+            this.btn_troca.UseVisualStyleBackColor = true;
+            this.btn_troca.Click += new System.EventHandler(this.btn_troca_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 288);
+            this.Controls.Add(this.btn_troca);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lbl_status);
             this.Controls.Add(this.btn_converter);
@@ -164,6 +181,7 @@ namespace Cambios
         private System.Windows.Forms.Label lbl_resultado;
         private System.Windows.Forms.Label lbl_status;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button btn_troca;
     }
 }
 
