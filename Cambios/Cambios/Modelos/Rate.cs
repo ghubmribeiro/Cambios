@@ -6,5 +6,10 @@
         public string Code { get; set; }
         public double TaxRate { get; set; }
         public string Name { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return $"{Name}";
+        //}
     }
 }
